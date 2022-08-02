@@ -1,0 +1,204 @@
+.MainLogin {
+    background-color: aquamarine;
+    height: 100px;
+  }
+  
+  
+  .Login {
+    display: inline-block;
+    padding: auto;
+  }
+  
+  .Login form {
+    margin: auto;
+    max-width: 320px;
+    background-color: rgb(130, 214, 243);
+  }
+  
+  .Register {
+    display: inline-block;
+    padding: 10px 10px;
+  }
+  
+  .form__group {
+    position: relative;
+    padding: 15px 0 0;
+    top: 150px;
+    width: 25%;
+    left: 570px;
+    }
+    
+    .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #2d394b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #2d394b;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    }
+    .form__field::placeholder {
+    color: transparent;
+    }
+    .form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 25px;
+    }
+    
+    .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+    }
+    
+    .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 1px;
+    border-image: linear-gradient(to right, #9b9b9b, #9b9b9b);
+    border-image-slice: 1;
+    }
+    .form__field:focus ~ .form__label {
+    position: absolute;
+    top: -7px;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #1f1e1e;
+    font-weight: 700;
+    }
+  
+    @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+  
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  html {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      color: #fff;
+  }
+  
+  body {
+      min-height: 100vh;
+      background-color: dodgerblue;
+  }
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 1rem 0.5rem;
+  }
+  
+  section {
+      width: 100%;
+      max-width: 420px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 1rem;
+      background-color: rgba(0,0,0,0.4);
+      margin: auto;
+    }
+  
+  form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      flex-grow: 1;
+      padding-bottom: 1rem;
+  }
+  
+  a, a:visited {
+      color: #fff;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  }
+  
+  label,
+  button {
+    margin-top: 1rem;
+  }
+  .LoginButton {
+    padding: 0.1rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    float: right;
+  }
+  
+  .loginFormButton {
+    padding: 0.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  }
+  
+  .instructions {
+      font-size: 0.75rem;
+      border-radius: 0.5rem;
+      background: #000;
+      color: #fff;
+      padding: 0.25rem;
+      position: relative;
+      bottom: -10px;
+  }
+  
+  .instructions > svg {
+      margin-right: 0.25rem;
+  }
+  
+  .offscreen {
+      position: absolute;
+      left: -9999px;
+  }
+  
+  .hide {
+      display: none;
+  }
+  
+  .valid {
+      color: limegreen;
+      margin-left: 0.25rem;
+  }
+  
+  .invalid {
+      color: red;
+      margin-left: 0.25rem;
+  }
+  
+  .errmsg {
+      background-color: lightpink;
+      color: firebrick;
+      font-weight: bold;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+  }
+  
+  .line {
+      display: inline-block;
+  }
+  
+  
