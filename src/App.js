@@ -36,7 +36,7 @@ function App() {
           <Link className='NavLinkLogin' to="/login"><button className="LoginButton">Login</button></Link> 
         </nav> */}
         
-          <Navbar />
+          {!auth? <Navbar />: <Navbar userloggedIn={true}/>}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/random" element={<PrivateRoute><Random /></PrivateRoute>} />

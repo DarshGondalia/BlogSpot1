@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     nav {
+        font-weight: 500;
         font-size: 17px;
     }
 
@@ -24,18 +25,21 @@ export const GlobalStyles = createGlobalStyle`
     }
     
     nav li {
+        color: var(--white);
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 21px;
-        min-height: 45px;
-        min-width: 110px;
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+        min-height: 42px;
         float: left;
         cursor: pointer;
     }
 
-    nav li:hover {
-        filter: brightness(0.9);
+    nav li:hover, nav li:focus, nav li:active {
+        background-color: #5c87b5;
+        filter: brightness(1.25);
     }
 
     nav a {

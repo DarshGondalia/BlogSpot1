@@ -1,7 +1,9 @@
 import React from 'react';
 import { Input } from '../styles/Input.style.js';
 import { Button } from '../styles/Button.style.js';
-import SearchIcon from '@mui/icons-material/Search.js';
+import Search from '@mui/icons-material/Search.js';
+
+const SearchIcon = Search.default; 
 
 export default function SearchBar({placeholder}) {
   return (
@@ -10,7 +12,7 @@ export default function SearchBar({placeholder}) {
         <div className='d-flex justify-content-center'>
             <Input type="search" name="search" sty="search" bg="grey" placeholder={placeholder} />
             <Button type="submit" bg="grey" sty="search">
-              <SearchIcon.default style={{marginTop: '5px'}} />
+              <SearchIcon style={{marginTop: '5px'}} />
             </Button>
         </div>
       </form>
