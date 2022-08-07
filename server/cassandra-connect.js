@@ -4,7 +4,7 @@ export class Database {
   constructor() {
     this.client = new Client({
       cloud: {
-        secureConnectBundle: "/Users/DarshGondalia/Desktop/BlogSpot/secure-connect-blogapptest.zip",
+        secureConnectBundle: "c:/individual projects/blogspot/secure-connect-blogapptest.zip",
       },
       credentials: {
         username: "RgeKPZzfZsWGCuRtUMvzDgZt",
