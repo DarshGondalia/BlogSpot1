@@ -35,15 +35,16 @@ app.post("/login", async (req, res) => {
     }
 });
 
-// app.postUpload("/post", async (req, res) => {
-//     try{
-//         const {username, date, post_title, post_details} = req.body;
-//         const post = await databaseAccess.post(username, date, post_title, post_details);
-//         res.send(post);
-//     }catch(err){
-//         console.log(err);
-//     }
-// });
+app.post("/MyBlogs/post", async (req, res) => {
+    try{
+        const {username, date, post_title, post_details} = req.body;
+        const post = await databaseAccess.postBlog(username, date, post_title, post_details);
+        console.log(post);
+        res.send(post);
+    }catch(err){
+        console.log(err);
+    }
+});
 
 app.get("/", (req, res) => res.sendFile("src/components/Home", {root: "./"}));
 

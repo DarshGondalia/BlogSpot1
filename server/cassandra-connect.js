@@ -42,9 +42,10 @@ export class Database {
     }
   }
 
-  async postUpload(username, date, post_title, post_details){
+  async postBlog(username, date, post_title, post_details){
     const queryString = 'INSERT INTO "TestUser".post_by_id (username, date, post_title, post_details) VALUES ' + "( '"+ username+"', '"+ date+"', '"+ post_title+"', '"+ post_details +"')" +"IF NOT EXISTS";     
-    const response = await this.client.execute(registerQueryString);
+    const response = await this.client.execute(queryString);
+    console.log(response);
     return "connect";
   }
 
