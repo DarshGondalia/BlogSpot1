@@ -42,11 +42,6 @@ export const GlobalStyles = createGlobalStyle`
         filter: brightness(1.25);
     }
 
-    nav a {
-        color: var(--black) !important;
-        text-decoration: none;
-    }
-
     /* format, styling */
     .align-items-center {
         align-items: center;
@@ -62,6 +57,10 @@ export const GlobalStyles = createGlobalStyle`
 
     .d-inline-block {
         display: inline-block;
+    }
+
+    .d-block {
+        display: block;
     }
     
     .flex-column {

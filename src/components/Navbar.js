@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthContext } from '../context/AuthProvider.js'
 import { NavLink } from 'react-router-dom'
 import logo from '../images/BlogSpotcrop.png'
@@ -6,12 +6,29 @@ import { Button } from '../styles/Button.style.js'
 import SearchBar from './SearchBar.js'
 import Notifications from '@mui/icons-material/Notifications.js';
 import AccountCircle from '@mui/icons-material/AccountCircle.js';
+import Login from '../Login.js'
+import Register from '../Register.js'
+import Modal from './Modal.js'
 
 const NotificationsIcon = Notifications.default;
 const AccountCircleIcon = AccountCircle.default;
 
 export default function Navbar({userloggedIn}) {
-  const {auth} = useContext(AuthContext)
+  const {auth} = useContext(AuthContext);
+  const [isOpen, SetIsOpen] = useState(false);
+  const [Content, SetContent] = useState('');
+  console.log(auth)
+
+
+  const OpenHandler = (e) => {
+    console.log(e.target);
+    SetIsOpen(true);
+    if (e.target.value === "Join") {
+      SetContent(<Register />);
+    } else {
+      SetContent(<Login />);
+    }
+  }
 
 
   return (
@@ -30,14 +47,13 @@ export default function Navbar({userloggedIn}) {
               </>
               ) : (
               <>
-                <NavLink to="/login">
+                <span style={{cursor: 'pointer'}} onClick={(e) => OpenHandler(e)}>
                   Login
-                </NavLink>
-                <NavLink to="/register">
-                  <Button sty="nav" color="white">
-                    Sign up
-                  </Button>
-                </NavLink>
+                </span>
+                <Button sty="nav" color="white" onClick={(e) => OpenHandler(e)}>
+                  Sign up
+                </Button>
+                <Modal open={isOpen} onClose={() => SetIsOpen(false)}>{Content}</Modal>
               </>
               )
             }
