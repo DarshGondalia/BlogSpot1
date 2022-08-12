@@ -84,7 +84,7 @@ function Register() {
             return;
         }
         try {
-          const data = JSON.stringify({ username: user, password: pwd, first_name: fullname, last_name: phone, email: email });
+          const data = JSON.stringify({ username: user, password: pwd, fullname: fullname, email: email, phone: phone });
           const response = await axios.post('http://localhost:3001/register', data, {
             headers: {
               'Content-Type': 'application/json',

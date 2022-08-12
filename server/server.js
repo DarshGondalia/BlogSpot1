@@ -17,8 +17,8 @@ app.use(express.urlencoded({extended: false}))
 const databaseAccess = new Database();
 app.post('/register', async (req, res)=> {
     try{
-        const {username, password, first_name, last_name, email} = req.body;
-        const register = await databaseAccess.createUser(username, password, first_name, last_name, email);
+        const {username, password, fullname, email, phone} = req.body;
+        const register = await databaseAccess.createUser(username, password, fullname, email, phone);
         res.send(register);
     }catch(err){
         console.log(err);
@@ -31,14 +31,14 @@ app.post("/login", async (req, res) => {
         const login = await databaseAccess.login(username, password);
         res.send(login.rows[0]); 
     }catch(err){
-        alert('Login Failed try again!');
+        console.log(err);
     }
 });
 
 app.post("/MyBlogs/post", async (req, res) => {
     try{
-        const {username, date, post_title, post_details} = req.body;
-        const post = await databaseAccess.postBlog(username, date, post_title, post_details);
+        const {username, posttitle, postdescription, postkeywords, postcontent } = req.body;
+        const post = await databaseAccess.postBlog(username, posttitle, postdescription, postkeywords, postcontent);
         console.log(post);
         res.send(post);
     }catch(err){
@@ -47,6 +47,12 @@ app.post("/MyBlogs/post", async (req, res) => {
 });
 
 app.get("/", (req, res) => res.sendFile("src/components/Home", {root: "./"}));
+
+app.get("/home", async (req, res)=>{
+    const blogs = await databaseAccess.getAllBlogs();
+
+    res.send(blogs);
+});
 
 app.all("*", async(request, response) => {
     response.status(404).send(`Not found: ${request.path}`);

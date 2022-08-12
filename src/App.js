@@ -10,28 +10,33 @@ import { PrivateRoute } from './PrivateRoute.js';
 import Login from './Login.js';
 import { AuthContext } from './context/AuthProvider.js';
 
+import Navbar from './components/Navbar.js'; 
+import { GlobalStyles } from './styles/GlobalStyles.style.js';
+
 function App() {
   const [auth, setAuth] = useState('');
 
 
   return (
     <AuthContext.Provider value={{auth, setAuth}}>
+      <GlobalStyles />
       <Router>
-        <div className='Title'>
+        {/* <div className='Title'>
           <div className='TitleName'>
             <strong>BlogSpot</strong>
             
           </div>
-        </div>
+        </div> */}
 
-        <nav className="NavBar" id="NavBar">
+        {/* <nav className="NavBar" id="NavBar">
           <Link className="NavLink" to="/"> Home </Link>
           <Link className='NavLink' to="/profile">Profile</Link>
           <Link className='NavLink' to="/random">Random</Link>
           <Link className='NavLink' to="/myblogs">MyBlogs</Link>
           <Link className='NavLinkLogin' to="/login"><button className="LoginButton">Login</button></Link> 
-        </nav>
+        </nav> */}
         
+          {!auth? <Navbar />: <Navbar userloggedIn={true}/>}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/random" element={<PrivateRoute><Random /></PrivateRoute>} />

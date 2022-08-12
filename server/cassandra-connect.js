@@ -1,10 +1,11 @@
 import { Client } from "cassandra-driver";
+import { query } from "express";
 
 export class Database {
   constructor() {
     this.client = new Client({
       cloud: {
-        secureConnectBundle: "/Users/DarshGondalia/Desktop/BlogSpot/secure-connect-blogapptest.zip",
+        secureConnectBundle: "/Users/DarshGondalia/Desktop/BlogSpot1/secure-connect-blogapptest.zip",
       },
       credentials: {
         username: "RgeKPZzfZsWGCuRtUMvzDgZt",
@@ -23,18 +24,19 @@ export class Database {
     await this.client.connect();
   }
   
-  async createUser (username, password, first_name, last_name, email) {
-    const queryString = 'SELECT * FROM "TestUser".users WHERE username='+ "'" + username + "' AND email='" + email + "' ALLOW FILTERING";
+  async createUser (username, password, fullname, email, phone) {
+    const queryString = 'SELECT * FROM "testUser2".users WHERE username='+ "'" + username + "' AND email='" + email + "' ALLOW FILTERING";
     const find = await this.client.execute(queryString);
+
     if(find.rowLength === 0){
-      const registerQueryString = 'INSERT INTO "TestUser".users (username, password, first_name, last_name, email) VALUES ' + "( '"+ username+"', '"+ password+"', '"+ first_name+"', '"+ last_name +"', '"+ email+"')" +"IF NOT EXISTS";     
+      const registerQueryString = 'INSERT INTO "testUser2".users (id, username, password, fullname, email, phone, followers) VALUES ' + "(uuid(), '"+ username+"', '"+ password+"', '"+ fullname+"', '"+ email+ "', '"+ phone+"', NULL)" +"IF NOT EXISTS";     
       const response = await this.client.execute(registerQueryString);
       return "connect";
     }
   }
 
   async login(username, password){
-    const queryString = 'SELECT * FROM "TestUser".users WHERE username='+ "'" + username + "' AND password='" + password + "' ALLOW FILTERING";
+    const queryString = 'SELECT * FROM "testUser2".users WHERE username='+ "'" + username + "' AND password='" + password + "' ALLOW FILTERING";
     const find = await this.client.execute(queryString);
     console.log(find);
     if(find.rowLength === 1){
@@ -42,11 +44,17 @@ export class Database {
     }
   }
 
-  async postBlog(username, date, post_title, post_details){
-    const queryString = 'INSERT INTO "TestUser".post_by_id (username, date, post_title, post_details) VALUES ' + "( '"+ username+"', '"+ date+"', '"+ post_title+"', '"+ post_details +"')" +"IF NOT EXISTS";     
+  async postBlog(username, posttitle, postdescription, postkeywords, postcontent){
+    const queryString = 'INSERT INTO "testUser2".posts (id, time, username, posttitle, postdescription, postkey, postcontent, convertedtime) VALUES ' + "(uuid(), now(), '"+ username+"', '"+ posttitle+"', '"+ postdescription+"', '"+ postkeywords +"', '"+ postcontent + "', toTimestamp(now()))" +" IF NOT EXISTS";     
     const response = await this.client.execute(queryString);
     console.log(response);
     return "connect";
+  }
+
+  async getAllBlogs(){
+    const queryString = 'SELECT * FROM "testUser2".posts ORDER BY convertedtime';
+    const response = await this.client.execute(queryString);
+    return response;
   }
 
 }
