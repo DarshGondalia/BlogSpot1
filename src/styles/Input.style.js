@@ -16,6 +16,7 @@ const InputSearch = `
 `
 
 const InputModal = `
+    font-family: 'Nunito', sans-serif;
     background-color: white;
     margin: 5px;
     font-size: 18px !important;

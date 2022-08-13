@@ -65,4 +65,10 @@ export const Button = styled.button`
         filter: brightness(0.8);
     }
     ${ButtonStyle}
+    ${props => props.disabled ?
+        `background: rgba(58, 114, 176, 0.55);
+        color: #ccc;
+        cursor: no-drop;` :
+        ``
+    }
 `;

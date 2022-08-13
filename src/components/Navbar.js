@@ -17,16 +17,13 @@ export default function Navbar({userloggedIn}) {
   const {auth} = useContext(AuthContext);
   const [isOpen, SetIsOpen] = useState(false);
   const [Content, SetContent] = useState('');
-  console.log(auth)
-
 
   const OpenHandler = (e) => {
-    console.log(e.target);
     SetIsOpen(true);
-    if (e.target.value === "Join") {
-      SetContent(<Register />);
-    } else {
+    if (e.target.id === "login_button") {
       SetContent(<Login />);
+    } else {
+      SetContent(<Register />);
     }
   }
 
@@ -47,10 +44,10 @@ export default function Navbar({userloggedIn}) {
               </>
               ) : (
               <>
-                <span style={{cursor: 'pointer'}} onClick={(e) => OpenHandler(e)}>
+                <span style={{cursor: 'pointer'}} onClick={(e) => OpenHandler(e)} id="login_button">
                   Login
                 </span>
-                <Button sty="nav" color="white" onClick={(e) => OpenHandler(e)}>
+                <Button sty="nav" color="white" onClick={(e) => OpenHandler(e)} id="join_button">
                   Sign up
                 </Button>
                 <Modal open={isOpen} onClose={() => SetIsOpen(false)}>{Content}</Modal>

@@ -107,10 +107,17 @@ export const GlobalStyles = createGlobalStyle`
         gap: 1.5rem;
     }
     
+    .text-start {
+        text-align: start;
+    }
+
     .text-center {
         text-align: center;
     }
 
+    .text-right {
+        text-align: end;
+    }
     /* spacing */
     .m-0 {
         margin: 0 !important;
@@ -513,5 +520,47 @@ export const GlobalStyles = createGlobalStyle`
 
     .text-white {
         color: var(--white);
+    }
+    
+    /* register form error */
+    .instructions {
+        font-size: 0.75rem;
+        border-radius: 0.5rem;
+        background: #000;
+        color: #fff;
+        padding: 0.25rem;
+        position: relative;
+        bottom: -10px;
+    }
+  
+    .instructions > svg {
+        margin-right: 0.25rem;
+    }
+    
+    .offscreen {
+        position: absolute;
+        left: -9999px;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .valid {
+        color: limegreen;
+        margin-left: 0.25rem;
+    }
+    
+    .invalid {
+        color: red;
+        margin-left: 0.25rem;
+    }
+    
+    .errmsg {
+        background-color: lightpink;
+        color: firebrick;
+        font-weight: bold;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 `
