@@ -20,10 +20,31 @@ const btnStySearch = `
     }
 `
 
+const btnStyModal = `
+    font-size: 20px;
+    padding: 8px;
+    min-height: 40px; 
+    min-width: 330px;
+    border-radius: 0.25rem;
+`
+
+const btnStyLink = `
+    background-color: inherit;
+    font-size: inherit;
+    color: var(--primary);
+    border: none;
+`
+
 const ButtonStyle = props => {
     switch (props.sty) {
+        case 'nav':
+            return btnStyNav;
         case 'search':
             return btnStySearch;
+        case 'modal':
+            return btnStyModal;
+        case 'link':
+            return btnStyLink;
         default:
             return btnStyNav;
     }
@@ -44,4 +65,10 @@ export const Button = styled.button`
         filter: brightness(0.8);
     }
     ${ButtonStyle}
+    ${props => props.disabled ?
+        `background: rgba(58, 114, 176, 0.55);
+        color: #ccc;
+        cursor: no-drop;` :
+        ``
+    }
 `;

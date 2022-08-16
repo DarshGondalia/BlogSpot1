@@ -12,9 +12,12 @@ import { AuthContext } from './context/AuthProvider.js';
 
 import Navbar from './components/Navbar.js'; 
 import { GlobalStyles } from './styles/GlobalStyles.style.js';
+import Modal from './components/Modal.js';
+import Join from './Join.js';
 
 function App() {
   const [auth, setAuth] = useState('');
+  const [isOpen, SetIsOpen] = useState(false);
 
 
   return (

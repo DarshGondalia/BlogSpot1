@@ -16,12 +16,14 @@ const InputSearch = `
 `
 
 const InputModal = `
+    font-family: 'Nunito', sans-serif;
+    background-color: white;
     margin: 5px;
-    font-size: 18px;
+    font-size: 18px !important;
     padding-left: 10px;
-    font-family: 'Mukta', sans-serif;
     min-height: 40px; 
     min-width: 330px;
+    border-radius: 0.2rem !important;
 `
 
 const InputStyle = props => {
