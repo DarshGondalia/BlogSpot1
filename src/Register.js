@@ -74,8 +74,41 @@ export default function Register() {
         setErrMsg('');
     }, [user, pwd, matchPwd, phone])
 
+<<<<<<< HEAD
   const handleSubmit = async (e) => {
     e.preventDefault();
+=======
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // if button enabled with JS hack
+        const v1 = USER_REGEX.test(user);
+        const v2 = PWD_REGEX.test(pwd);
+        const v3 = PHONE_REGEX.test(phone);
+        const v4 = EMAIL_REGEX.test(email);
+
+        if (!v1 || !v2 || !v3 || !v4) {
+            setErrMsg("Invalid Entry");
+            return;
+        }
+        try {
+          const data = JSON.stringify({ username: user, password: pwd, fullname: fullname, email: email, phone: phone });
+          const response = await axios.post('http://localhost:3001/register', data, {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          });
+          console.log(response);
+            setSuccess(true);
+            setUser('');
+            setPwd('');
+            setMatchPwd('');
+            setEmail('');
+            setPhone('');
+        } catch (err) {
+            errRef.current.focus();
+        }
+    }
+>>>>>>> 90b127437f815c1102538589a0d191dc32543daa
     
     const v1 = USER_REGEX.test(user);
     const v2 = PWD_REGEX.test(pwd);
