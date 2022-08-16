@@ -24,10 +24,15 @@ function Home() {
     }
   };
   blogs();
+  //currPost = {id: uuid, time: timeuuid, username: text, posttitle: text, 
+  //postdescription: text, postcontent: text, postkeywords: text, likes: null, likedBy: null}
   const blogList = list.map(currPost =>  
-      <h2>
+      
+      <div>
+        <h2>
         {currPost.username}, {currPost.posttitle}, {currPost.convertedtime}, {currPost.postcontent}
-      </h2>
+        </h2>
+      </div>
     );
 
   return <div>{blogList}</div>;
