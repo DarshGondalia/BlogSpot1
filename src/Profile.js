@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import { AirlineSeatLegroomExtraSharp } from '@mui/icons-material';
+import { AuthContext } from './context/AuthProvider.js';
 
 function Profile() {
   const [profile, setProfile] = useState([]);
-
+  const {auth, setAuth} = useContext(AuthContext);
+  
   const profInfo = async () => {
     try{
       let response = await axios.get('http://localhost:3001/getProfile');
@@ -15,7 +17,7 @@ function Profile() {
     }
   };
   profInfo();
-  
+
   return (
     <div>Profile</div>
   )

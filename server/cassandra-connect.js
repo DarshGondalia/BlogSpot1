@@ -52,7 +52,7 @@ export class Database {
   }
 
   async getAllBlogs(){
-    const queryString = 'SELECT * FROM "testUser2".posts ORDER BY convertedtime';
+    const queryString = 'SELECT * FROM "testUser2".posts';
     const response = await this.client.execute(queryString);
     return response;
   }

@@ -74,10 +74,8 @@ export default function Register() {
         setErrMsg('');
     }, [user, pwd, matchPwd, phone])
 
-<<<<<<< HEAD
   const handleSubmit = async (e) => {
     e.preventDefault();
-=======
     const handleSubmit = async (e) => {
         e.preventDefault();
         // if button enabled with JS hack
@@ -108,7 +106,6 @@ export default function Register() {
             errRef.current.focus();
         }
     }
->>>>>>> 90b127437f815c1102538589a0d191dc32543daa
     
     const v1 = USER_REGEX.test(user);
     const v2 = PWD_REGEX.test(pwd);

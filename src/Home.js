@@ -32,6 +32,7 @@ function Home() {
         <h2>
         {currPost.username}, {currPost.posttitle}, {currPost.convertedtime}, {currPost.postcontent}
         </h2>
+        <h6>{currPost.posttitle}</h6>
       </div>
     );
 
