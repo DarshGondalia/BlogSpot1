@@ -5,7 +5,7 @@ export class Database {
   constructor() {
     this.client = new Client({
       cloud: {
-        secureConnectBundle: "/Users/DarshGondalia/Desktop/BlogSpot1/secure-connect-blogapptest.zip",
+        secureConnectBundle: "c:/individual projects/blogspot/secure-connect-blogapptest.zip",
       },
       credentials: {
         username: "RgeKPZzfZsWGCuRtUMvzDgZt",
@@ -52,7 +52,7 @@ export class Database {
   }
 
   async getAllBlogs(){
-    const queryString = 'SELECT * FROM "testUser2".posts ORDER BY convertedtime';
+    const queryString = 'SELECT * FROM "testUser2".posts';
     const response = await this.client.execute(queryString);
     return response;
   }

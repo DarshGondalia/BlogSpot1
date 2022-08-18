@@ -47,6 +47,10 @@ export const GlobalStyles = createGlobalStyle`
         align-items: center;
     }
 
+    .pointer {
+        cursor: pointer;
+    }
+
     .d-flex {
         display: flex;
     }
@@ -522,6 +526,37 @@ export const GlobalStyles = createGlobalStyle`
         color: var(--white);
     }
     
+    /* navbar */    
+    .dropdown-content-open {
+        display: block;
+        position: absolute;
+        margin-top: 38px;
+        margin-left: -20px;
+        background-color: var(--white);
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    .dropdown-content-open div {
+        display: flex;
+        padding: 8px 20px;
+        gap: 3px;
+        align-items: center;
+    }
+
+    .dropdown-content-open div:hover {
+        background-color: var(--lightgrey);
+    }
+
+    .dropdown-content-open div:focus, .dropdown-content-open div:active {
+        background-color: var(--darkgrey);
+    }
+
+    .hidden {
+        display: none;
+    }
+
     /* register form error */
     .instructions {
         font-size: 0.75rem;

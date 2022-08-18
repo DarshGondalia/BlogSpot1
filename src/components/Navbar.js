@@ -5,18 +5,27 @@ import logo from '../images/BlogSpotcrop.png'
 import { Button } from '../styles/Button.style.js'
 import SearchBar from './SearchBar.js'
 import Notifications from '@mui/icons-material/Notifications.js';
-import AccountCircle from '@mui/icons-material/AccountCircle.js';
+import Person from '@mui/icons-material/Person.js';
+import ArrowDropDown from '@mui/icons-material/ArrowDropDown.js';
+import Face from '@mui/icons-material/Face.js';
+import Logout from '@mui/icons-material/Logout.js';
 import Login from '../Login.js'
 import Register from '../Register.js'
 import Modal from './Modal.js'
 
 const NotificationsIcon = Notifications.default;
-const AccountCircleIcon = AccountCircle.default;
+const PersonIcon = Person.default;
+const ArrowDropDownIcon = ArrowDropDown.default;
+const FaceIcon = Face.default;
+const LogoutIcon = Logout.default;
 
 export default function Navbar({userloggedIn}) {
   const {auth} = useContext(AuthContext);
   const [isOpen, SetIsOpen] = useState(false);
   const [Content, SetContent] = useState('');
+  const [DropDownOpen, SetDropDownOpen] = useState(false);
+
+  const DropDownHandler = () => SetDropDownOpen(!DropDownOpen);
 
   const OpenHandler = (e) => {
     SetIsOpen(true);
@@ -39,12 +48,19 @@ export default function Navbar({userloggedIn}) {
             {userloggedIn ? (
               <>
                 <NotificationsIcon />
-                <AccountCircleIcon />
-                {auth.user}
+                <div className='d-flex gap-2 pointer' onClick={() => DropDownHandler()}>
+                  <PersonIcon />
+                  {auth.user}
+                  <ArrowDropDownIcon />
+                  <div className={DropDownOpen ? 'dropdown-content-open' : 'hidden'}>
+                    <div to="/profile"><FaceIcon />Account</div>
+                    <div><LogoutIcon />Log out</div>
+                  </div>
+                </div>
               </>
               ) : (
               <>
-                <span style={{cursor: 'pointer'}} onClick={(e) => OpenHandler(e)} id="login_button">
+                <span className='pointer' onClick={(e) => OpenHandler(e)} id="login_button">
                   Login
                 </span>
                 <Button sty="nav" color="white" onClick={(e) => OpenHandler(e)} id="join_button">
