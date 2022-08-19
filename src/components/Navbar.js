@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../context/AuthProvider.js'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../images/BlogSpotcrop.png'
 import { Button } from '../styles/Button.style.js'
 import SearchBar from './SearchBar.js'
@@ -53,7 +53,7 @@ export default function Navbar({userloggedIn}) {
                   {auth.user}
                   <ArrowDropDownIcon />
                   <div className={DropDownOpen ? 'dropdown-content-open' : 'hidden'}>
-                    <div to="/profile"><FaceIcon />Account</div>
+                    <div><Link to="/profile"><FaceIcon />Account</Link></div>
                     <div><LogoutIcon />Log out</div>
                   </div>
                 </div>

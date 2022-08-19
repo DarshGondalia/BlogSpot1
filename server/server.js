@@ -54,6 +54,11 @@ app.get("/home", async (req, res)=>{
     res.send(blogs);
 });
 
+app.get("/getProfile", async (req, res) => {
+    const profile = await databaseAccess.getProfile();
+    res.send(profile);
+});
+
 app.all("*", async(request, response) => {
     response.status(404).send(`Not found: ${request.path}`);
 });
