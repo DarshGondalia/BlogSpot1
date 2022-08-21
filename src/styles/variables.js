@@ -11,7 +11,7 @@ const variables = css`
         --grey: #edeff2;
         --red: #f52525;
         --green: #1DBF73;
-        --darkgrey: #dce0e6;
+        --darkgrey: #302c2c;
         --lightgrey: #f2f3f5;
     }
 `

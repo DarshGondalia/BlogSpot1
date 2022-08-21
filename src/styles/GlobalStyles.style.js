@@ -12,7 +12,21 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
+        background-color: var(--grey);
         color: var(--black);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+            sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Arial;
+    }
+    
+    p {
+        font-family: Georgia;
     }
 
     nav {
@@ -513,9 +527,66 @@ export const GlobalStyles = createGlobalStyle`
         padding-left: 3rem !important;
     }
 
-    /* color, backgroundcolor */
+    /* font */
+    .fw-light {
+        font-weight: 200 !important;
+    }
+    
+    .fw-lighter {
+        font-weight: lighter !important;
+    }
+    .fw-bold {
+        font-weight: bold !important;
+    }
+
+    .fw-bolder {
+        font-weight: bolder !important;
+    }
+    
+    .display-1 {
+        font-size: 5rem;
+    }
+
+    .display-2 {
+        font-size: 4.5rem;
+    }
+    
+    .display-3 {
+        font-size: 4rem;
+    }
+    
+    .display-4 {
+        font-size: 3.5rem;
+    }
+    
+    .display-5 {
+        font-size: 3rem;
+    }
+    
+    .display-6 {
+        font-size: 2.5rem;
+    }
+
+    .display-7 {
+        font-size: 2rem;
+    }
+
+    .display-8 {
+        font-size: 1.5rem;
+    }
+
+    .display-9 {
+        font-size: 1.25rem;
+    }
+    
+
+    /* color, backgroundcolor, opacity */
     .bg-primary {
         background-color: var(--primary);
+    }
+
+    .bg-white {
+        background-color: var(--white);
     }
 
     .text-primary {
@@ -524,6 +595,22 @@ export const GlobalStyles = createGlobalStyle`
 
     .text-white {
         color: var(--white);
+    }
+
+    .text-light {
+        color: var(--lightgrey);
+    }
+
+    .text-grey {
+        color: var(--darkgrey)
+    }
+
+    .opacity-60 {
+        opacity: 0.60 !important;
+    }
+
+    .opacity-75 {
+        opacity: 0.75 !important;
     }
     
     /* navbar */    
@@ -597,5 +684,15 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: bold;
         padding: 0.5rem;
         margin-bottom: 0.5rem;
+    }
+
+    /* post */
+    .post {
+        font-size: larger;
+        margin: auto;
+        padding: 30px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        width: 60vw;
     }
 `

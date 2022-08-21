@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 // import ListPost from './ListPost.js';
 import axios from 'axios';
+import Post from './components/Post.js';
 
 function Home() {
 
@@ -13,12 +14,6 @@ function Home() {
         let data = response.data.rows;
         setList(data);
         return list;
-        console.log(data[0]);
-        for(let i = 0; i < data.length; i++){
-          list.push(data[i]);
-        }
-        console.log(list.length);
-        return JSON.parse(list);
     }catch(err){
         console.log(err);
     }
@@ -26,17 +21,24 @@ function Home() {
   blogs();
   //currPost = {id: uuid, time: timeuuid, username: text, posttitle: text, 
   //postdescription: text, postcontent: text, postkeywords: text, likes: null, likedBy: null}
-  const blogList = list.map(currPost =>  
-      
-      <div>
-        <h2>
-        {currPost.username}, {currPost.posttitle}, {currPost.convertedtime}, {currPost.postcontent}
-        </h2>
-        <h6>{currPost.posttitle}</h6>
-      </div>
+  const blogList = list.map(currPost => {
+    const date = currPost.convertedtime.substring(5, 7) + '/' + currPost.convertedtime.substring(8, 10) + '/' + currPost.convertedtime.substring(0, 4);
+    return (
+      <div key={currPost.id}>
+          <br />
+          <Post 
+            username={currPost.username}
+            date={date}
+            title={currPost.posttitle}
+            content={currPost.postcontent}
+          >
+          </Post>
+        </div>
+      )
+      }
     );
 
-  return <div>{blogList}</div>;
+  return <>{blogList}</>;
 }
 
 export default Home

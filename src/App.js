@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import {BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home.js';
 import Random from './Random.js';
 import Profile from './Profile.js';
@@ -9,11 +9,8 @@ import Register from './Register.js';
 import { PrivateRoute } from './PrivateRoute.js';
 import Login from './Login.js';
 import { AuthContext } from './context/AuthProvider.js';
-
 import Navbar from './components/Navbar.js'; 
 import { GlobalStyles } from './styles/GlobalStyles.style.js';
-import Modal from './components/Modal.js';
-import Join from './Join.js';
 
 function App() {
   const [auth, setAuth] = useState('');

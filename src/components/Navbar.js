@@ -39,7 +39,7 @@ export default function Navbar({userloggedIn}) {
 
   return (
     <>
-        <nav className='d-flex align-items-center ps-3 pe-3 pt-1 pb-1'>
+        <nav className='bg-white d-flex align-items-center ps-3 pe-3 pt-1 pb-1'>
             <NavLink to="/">
                 <img src={logo} alt="" width="45%"/>
             </NavLink>
