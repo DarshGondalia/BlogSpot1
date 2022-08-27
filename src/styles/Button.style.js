@@ -28,6 +28,20 @@ const btnStyModal = `
     border-radius: 0.25rem;
 `
 
+const btnStyDefault = `
+    font-size: 17.5px;
+    border: none;
+    min-height: 45px; 
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: var(--softwhite);
+    border-radius: 0.2rem;
+
+`
+
 const btnStyLink = `
     background-color: inherit;
     font-size: inherit;
@@ -46,7 +60,7 @@ const ButtonStyle = props => {
         case 'link':
             return btnStyLink;
         default:
-            return btnStyNav;
+            return btnStyDefault;
     }
 }
 

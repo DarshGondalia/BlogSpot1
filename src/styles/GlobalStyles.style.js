@@ -56,6 +56,16 @@ export const GlobalStyles = createGlobalStyle`
         filter: brightness(1.25);
     }
 
+    textarea {
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px !important;
+        padding: 3px 5px;
+        border-radius: 0.2rem !important;
+        border: 2px solid var(--black);
+        min-height: 300px;
+        resize: none;
+    }
+
     /* format, styling */
     .align-items-center {
         align-items: center;
@@ -636,8 +646,13 @@ export const GlobalStyles = createGlobalStyle`
         background-color: var(--lightgrey);
     }
 
+    .dropdown-content-open a {
+        color: inherit;
+        text-decoration: none;
+    }    
+
     .dropdown-content-open div:focus, .dropdown-content-open div:active {
-        background-color: var(--darkgrey);
+        background-color: var(--grey);
     }
 
     .hidden {
@@ -694,5 +709,33 @@ export const GlobalStyles = createGlobalStyle`
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         width: 60vw;
+    }
+
+    /* myblogs */
+    .blog-form {
+        width: 80vw;
+        margin: auto;
+        padding: 0em 2em 1.5em;
+        background-color: var(--white);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+
+    .form-nav {
+        margin: 0em -2em 1.25em;
+        max-height: max-content;
+        padding: 0.5em 1em;
+        background-color: var(--softgrey);
+    }
+
+    .form-left {
+        width: 15%;
+    }
+
+    .form-right {
+        width: 40%;
+    }
+
+    .form-content {
+        width: 80%;
     }
 `

@@ -53,7 +53,7 @@ export default function Navbar({userloggedIn}) {
                   {auth.user}
                   <ArrowDropDownIcon />
                   <div className={DropDownOpen ? 'dropdown-content-open' : 'hidden'}>
-                    <div><Link to="/profile"><FaceIcon />Account</Link></div>
+                    <Link to="/profile"><div><FaceIcon />Account</div></Link>
                     <div><LogoutIcon />Log out</div>
                   </div>
                 </div>
