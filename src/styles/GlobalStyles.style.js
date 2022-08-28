@@ -709,6 +709,29 @@ export const GlobalStyles = createGlobalStyle`
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         width: 60vw;
+        cursor: pointer;
+        transition: all 0.05s ease-in;
+    }
+
+    .post p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+
+    .post:hover {
+        opacity: 0.8;
+    }
+
+    .post:focus, .post:active {
+        opacity: 0.65;
+        transform: scale(0.98);
+    }
+
+    .username-link:hover {
+        color: var(--primary);
+        text-decoration: underline;
     }
 
     /* myblogs */
